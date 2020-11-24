@@ -1,11 +1,9 @@
 import app from './app';
 import database from './database';
 
-// OBS
-// na primeira vez, é preciso, p/ force: true, pra forçar criação da tabela
-// depois, dá pra deixar false, ou retirar.
-// não deixar assim em produção, pois apaga todos os dados
-// e  apaga a tabela e recria ela novamente sem dados
+// OBS:
+// na primeira vez, é preciso, por {force: true}, pra forçar criação dos schemas, depois, dá pra deixar {force: false}, ou retirar.
+// PS: NÃO deixar assim em produção, pois apaga os dados e schemas criados, e logo em seguida recria os schemas...
 database.sync({force: false});
 console.log('MySQL database running at port 3306');
 
