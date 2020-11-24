@@ -36,7 +36,7 @@ async function postLink(req: Request, res: Response) {
 
 }
 
-async function getLink(req: Request, res: Response) {
+async function getLinkStats(req: Request, res: Response) {
 
     const code = req.params.code as string;
     const link = await linksRepository.findByCode(code);
@@ -45,6 +45,18 @@ async function getLink(req: Request, res: Response) {
         res.sendStatus(404); // não encontrado
     } else {
         res.json(link); // retorna o link como um json
+    }
+
+}
+
+async function getLinks(req: Request, res: Response) {
+
+    const links = await linksRepository.findAll();
+
+    if (!links) {
+        res.sendStatus(404); // nenhum link encontrado
+    } else {
+        res.json(links); // retorna o n links como um json
     }
 
 }
@@ -62,7 +74,8 @@ async function hitLink(req: Request, res: Response) {
 }
 
 export default {
+    getLinks,
+    getLinkStats,
     postLink,
-    getLink,
     hitLink
 }
