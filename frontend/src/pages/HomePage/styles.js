@@ -15,3 +15,11 @@ export const Form = styled.form`
     text-align: center;
 `;
 
+export const AdsBlock = styled.div`
+    border: 1px solid #f7f7f7;
+    background-color: #f1f1f1;
+    text-align: center;
+    padding: 2rem;
+    flex: 0 0 80%;
+    max-width: 80%;
+`;
