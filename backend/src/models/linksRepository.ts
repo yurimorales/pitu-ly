@@ -1,14 +1,6 @@
 import linkModel, {ILinkModel} from './linkModel';
 import {Link} from './link';
 
-function findAll() {
-    return linkModel.findAll<ILinkModel>({
-        order: [
-            ['id', 'DESC']
-        ]
-    });
-}
-
 function findByCode(code: string) {
     return linkModel.findOne<ILinkModel>({ where: { code } });
 }
@@ -30,7 +22,6 @@ async function hit(code: string) {
 }
 
 export default {
-    findAll,
     findByCode,
     add,
     hit

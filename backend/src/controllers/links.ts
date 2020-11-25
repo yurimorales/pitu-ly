@@ -49,18 +49,6 @@ async function getLinkStats(req: Request, res: Response) {
 
 }
 
-async function getLinks(req: Request, res: Response) {
-
-    const links = await linksRepository.findAll();
-
-    if (!links) {
-        res.sendStatus(404); // nenhum link encontrado
-    } else {
-        res.json(links); // retorna o n links como um json
-    }
-
-}
-
 async function hitLink(req: Request, res: Response) {
     
     const code = req.params.code as string;
@@ -74,7 +62,6 @@ async function hitLink(req: Request, res: Response) {
 }
 
 export default {
-    getLinks,
     getLinkStats,
     postLink,
     hitLink
